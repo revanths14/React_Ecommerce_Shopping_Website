@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+//import react router dom
+import { BrowserRouter as Router, Route ,Routes } from 'react-router-dom';
+//import pages
+
+import Home from './pages/Home ';
+import ProductDetails from './pages/ProductDetails';
+
+// import component
+import Slidebar from './Components/Sidebar';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='overflow-hidden' >
+      <Router>
+        <Header/>
+          <Routes>
+                <Route path='/' element={<Home/>}/>
+                <Route path='/product/:id' element={<ProductDetails/>}/>
+          </Routes>
+          <Slidebar/>
+          <Footer/>
+      </Router>
+      
+
     </div>
   );
 }
